@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111111" />
+    <meta
+      name="description"
+      content="View a 3D artwork in your space with augmented reality."
+    />
+    <title>AR Model Viewer</title>
+  </head>
+  <body>
+    <main class="viewer-page">
+      <header class="viewer-page__header">
+        <p class="eyebrow">3D preview</p>
+        <h1>View the artwork in your space</h1>
+        <p>Drag to rotate, scroll to zoom, or use AR on a supported mobile device.</p>
+      </header>
+
+      <section class="viewer-shell" aria-label="Interactive 3D model">
+        <model-viewer
+          id="artwork-viewer"
+          src="/models/paintedpaths3dlogo.glb"
+          alt="Interactive three-dimensional artwork"
+          camera-controls
+          touch-action="pan-y"
+          auto-rotate
+          shadow-intensity="1"
+          environment-image="neutral"
+          exposure="1"
+          ar
+          ar-modes="webxr scene-viewer quick-look"
+          ar-placement="floor"
+        >
+          <button class="ar-button" slot="ar-button" type="button">
+            View in your space
+          </button>
+
+          <div class="progress" slot="progress-bar" aria-label="Loading model">
+            <div class="progress__bar"></div>
+          </div>
+        </model-viewer>
+      </section>
+
+      <p id="model-message" class="model-message" hidden></p>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
