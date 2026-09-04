@@ -18,7 +18,8 @@ body {
     #111;
 }
 
-button {
+button,
+select {
   font: inherit;
 }
 
@@ -50,7 +51,7 @@ h1 {
 }
 
 .viewer-page__header > p:last-child {
-  max-width: 38rem;
+  max-width: 42rem;
   margin: 1.25rem 0 0;
   color: #b9b6ae;
   line-height: 1.6;
@@ -65,6 +66,35 @@ h1 {
   box-shadow: 0 2rem 5rem rgb(0 0 0 / 35%);
 }
 
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgb(21 21 21 / 12%);
+  color: #151515;
+  background: #dedbd2;
+}
+
+.viewer-toolbar label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.viewer-toolbar select {
+  min-width: 10rem;
+  min-height: 2.6rem;
+  padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  border: 1px solid rgb(21 21 21 / 20%);
+  border-radius: 0.6rem;
+  color: #151515;
+  background: #fff;
+  font-weight: 650;
+}
+
 model-viewer {
   display: block;
   width: 100%;
@@ -73,16 +103,30 @@ model-viewer {
   --poster-color: #dedbd2;
 }
 
+.viewer-actions {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-top: 1px solid rgb(21 21 21 / 12%);
+  background: #dedbd2;
+}
+
+.viewer-actions[hidden] {
+  display: none;
+}
+
 .ar-button {
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  padding: 0.85rem 1.1rem;
-  border: 0;
+  width: min(100%, 28rem);
+  min-height: 3.5rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgb(255 255 255 / 80%);
   border-radius: 999px;
   color: #fff;
   background: #151515;
-  box-shadow: 0 0.35rem 1rem rgb(0 0 0 / 25%);
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 28%);
+  font-weight: 750;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
   cursor: pointer;
 }
 
@@ -135,28 +179,26 @@ model-viewer {
     min-height: 0;
   }
 
+  .viewer-toolbar {
+    padding: 0.75rem;
+  }
+
+  .viewer-toolbar select {
+    min-width: 0;
+    max-width: 70%;
+  }
+
   model-viewer {
-    height: min(52vh, 30rem);
-    height: clamp(22rem, 52svh, 30rem);
+    height: min(58vh, 34rem);
+    height: clamp(24rem, 58svh, 34rem);
     min-height: 0;
   }
 
-  .ar-button {
-    right: auto;
-    bottom: max(1rem, env(safe-area-inset-bottom));
-    left: 50%;
-    width: calc(100% - 2rem);
-    min-height: 3.5rem;
-    padding: 1rem 1.25rem;
-    border: 2px solid rgb(255 255 255 / 80%);
-    font-weight: 750;
-    font-size: 1rem;
-    letter-spacing: 0.01em;
-    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 35%);
-    transform: translateX(-50%);
+  .viewer-actions {
+    padding: 0.85rem 1rem max(0.85rem, env(safe-area-inset-bottom));
   }
 
-  .progress {
-    bottom: 5rem;
+  .ar-button {
+    width: 100%;
   }
 }

@@ -15,10 +15,17 @@
       <header class="viewer-page__header">
         <p class="eyebrow">3D preview</p>
         <h1>View the artwork in your space</h1>
-        <p>Drag to rotate, scroll to zoom, or use AR on a supported mobile device.</p>
+        <p>Use one finger to rotate, swipe with two fingers to move, and pinch with two fingers to zoom. Use AR on a supported mobile device.</p>
       </header>
 
       <section class="viewer-shell" aria-label="Interactive 3D model">
+        <div class="viewer-toolbar">
+          <label for="model-select">Model</label>
+          <select id="model-select">
+            <option value="/models/logocompressed.glb">Painted</option>
+            <option value="/models/logogray.glb">Gray</option>
+          </select>
+        </div>
         <model-viewer
           id="artwork-viewer"
           src="/models/logocompressed.glb"
@@ -27,20 +34,22 @@
           touch-action="pan-y"
           auto-rotate
           shadow-intensity="1"
-          environment-image="neutral"
-          exposure="1"
+          environment-image="/images/studio007small-rotated.hdr"
+          exposure="2.0"
           ar
           ar-modes="webxr scene-viewer quick-look"
           ar-placement="floor"
         >
-          <button class="ar-button" slot="ar-button" type="button">
-            View in your space
-          </button>
-
           <div class="progress" slot="progress-bar" aria-label="Loading model">
             <div class="progress__bar"></div>
           </div>
         </model-viewer>
+
+        <div id="viewer-actions" class="viewer-actions" hidden>
+          <button id="ar-button" class="ar-button" type="button">
+            View in your space
+          </button>
+        </div>
       </section>
 
       <p id="model-message" class="model-message" hidden></p>
