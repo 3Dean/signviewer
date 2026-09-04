@@ -18,8 +18,7 @@ body {
     #111;
 }
 
-button,
-select {
+button {
   font: inherit;
 }
 
@@ -58,51 +57,12 @@ h1 {
 }
 
 .viewer-shell {
-  position: relative;
   overflow: hidden;
   min-height: 32rem;
   border: 1px solid rgb(255 255 255 / 12%);
   border-radius: 1.25rem;
   background: #dedbd2;
   box-shadow: 0 2rem 5rem rgb(0 0 0 / 35%);
-}
-
-.material-picker {
-  position: absolute;
-  z-index: 2;
-  top: 1rem;
-  left: 1rem;
-  display: grid;
-  gap: 0.35rem;
-  padding: 0.65rem 0.75rem;
-  border: 1px solid rgb(255 255 255 / 70%);
-  border-radius: 0.8rem;
-  color: #151515;
-  background: rgb(255 255 255 / 88%);
-  box-shadow: 0 0.35rem 1rem rgb(0 0 0 / 18%);
-  -webkit-backdrop-filter: blur(0.75rem);
-  backdrop-filter: blur(0.75rem);
-}
-
-.material-picker span {
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.material-picker select {
-  min-height: 2.5rem;
-  padding: 0.45rem 2.25rem 0.45rem 0.65rem;
-  border: 1px solid rgb(21 21 21 / 20%);
-  border-radius: 0.55rem;
-  color: #151515;
-  background: #fff;
-  font-weight: 650;
-}
-
-.material-picker select:disabled {
-  opacity: 0.55;
 }
 
 model-viewer {
@@ -173,12 +133,6 @@ model-viewer {
 
   .viewer-shell {
     min-height: 0;
-  }
-
-  .material-picker {
-    top: 0.75rem;
-    left: 0.75rem;
-    max-width: calc(100% - 1.5rem);
   }
 
   model-viewer {
