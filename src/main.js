@@ -35,5 +35,5 @@ arButton.addEventListener('click', async () => {
 viewer.addEventListener('error', () => {
   message.hidden = false;
   message.textContent =
-    'The model could not be loaded. Confirm that public/models/logocompressed.glb exists and refresh the page.';
+    'The model could not be loaded. Confirm that the selected GLB exists in public/models and refresh the page.';
 });
