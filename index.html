@@ -19,6 +19,13 @@
       </header>
 
       <section class="viewer-shell" aria-label="Interactive 3D model">
+        <label class="material-picker" for="material-select">
+          <span>Finish</span>
+          <select id="material-select" disabled>
+            <option value="original">Original</option>
+            <option value="glossy" selected>Glossy reflective</option>
+          </select>
+        </label>
         <model-viewer
           id="artwork-viewer"
           src="/models/logocompressed.glb"
@@ -27,7 +34,7 @@
           touch-action="pan-y"
           auto-rotate
           shadow-intensity="1"
-          environment-image="neutral"
+          environment-image="/images/PLight01-06.hdr"
           exposure="1"
           ar
           ar-modes="webxr scene-viewer quick-look"
