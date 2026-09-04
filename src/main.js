@@ -20,15 +20,17 @@ function applySelectedFinish() {
   const pbr = material.pbrMetallicRoughness;
 
   if (materialSelect.value === 'glossy') {
-    pbr.setBaseColorFactor('#786A64');
+    pbr.setBaseColorFactor(originalFinish.baseColorFactor);
     pbr.setMetallicFactor(0.6);
     pbr.setRoughnessFactor(0.48);
+    viewer.exposure = 1.8;
     return;
   }
 
   pbr.setBaseColorFactor(originalFinish.baseColorFactor);
   pbr.setMetallicFactor(originalFinish.metallicFactor);
   pbr.setRoughnessFactor(originalFinish.roughnessFactor);
+  viewer.exposure = originalFinish.exposure;
 }
 
 viewer.addEventListener('load', () => {
@@ -42,6 +44,7 @@ viewer.addEventListener('load', () => {
     baseColorFactor: [...pbr.baseColorFactor],
     metallicFactor: pbr.metallicFactor,
     roughnessFactor: pbr.roughnessFactor,
+    exposure: viewer.exposure,
   };
 
   materialSelect.disabled = false;
