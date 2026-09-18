@@ -4,12 +4,12 @@ A minimal Vite site for previewing a GLB model in 3D and launching augmented rea
 
 ## Add the model
 
-The current model is stored in `public/models/` as `logocompressed.glb`.
+The current model is stored in `public/models/` as `woodsRestSign_Model_005.glb`.
 
 The final path should be:
 
 ```text
-public/models/logocompressed.glb
+public/models/woodsRestSign_Model_005.glb
 ```
 
 Files in `public/` are served without being bundled, which is appropriate for a large model asset.
@@ -31,7 +31,7 @@ AR generally requires the deployed site to use HTTPS. Localhost is suitable for 
 public/
   draco/               # Locally hosted Draco decoder
   models/
-    logocompressed.glb
+    woodsRestSign_Model_005.glb
   posters/             # Optional preview/poster images
 src/
   main.js

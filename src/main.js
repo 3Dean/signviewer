@@ -8,7 +8,6 @@ const viewer = document.querySelector('#artwork-viewer');
 const message = document.querySelector('#model-message');
 const viewerActions = document.querySelector('#viewer-actions');
 const arButton = document.querySelector('#ar-button');
-const modelSelect = document.querySelector('#model-select');
 
 function updateArAvailability() {
   viewerActions.hidden = !viewer.canActivateAR;
@@ -16,12 +15,6 @@ function updateArAvailability() {
 
 viewer.addEventListener('load', updateArAvailability);
 viewer.addEventListener('ar-status', updateArAvailability);
-
-modelSelect.addEventListener('change', () => {
-  viewerActions.hidden = true;
-  message.hidden = true;
-  viewer.src = modelSelect.value;
-});
 
 arButton.addEventListener('click', async () => {
   try {
@@ -35,5 +28,5 @@ arButton.addEventListener('click', async () => {
 viewer.addEventListener('error', () => {
   message.hidden = false;
   message.textContent =
-    'The model could not be loaded. Confirm that the selected GLB exists in public/models and refresh the page.';
+    'The model could not be loaded. Confirm that the GLB exists in public/models and refresh the page.';
 });

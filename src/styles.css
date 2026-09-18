@@ -18,8 +18,7 @@ body {
     #111;
 }
 
-button,
-select {
+button {
   font: inherit;
 }
 
@@ -64,35 +63,6 @@ h1 {
   border-radius: 1.25rem;
   background: #dedbd2;
   box-shadow: 0 2rem 5rem rgb(0 0 0 / 35%);
-}
-
-.viewer-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid rgb(21 21 21 / 12%);
-  color: #151515;
-  background: #dedbd2;
-}
-
-.viewer-toolbar label {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.viewer-toolbar select {
-  min-width: 10rem;
-  min-height: 2.6rem;
-  padding: 0.5rem 2.25rem 0.5rem 0.75rem;
-  border: 1px solid rgb(21 21 21 / 20%);
-  border-radius: 0.6rem;
-  color: #151515;
-  background: #fff;
-  font-weight: 650;
 }
 
 model-viewer {
@@ -177,15 +147,6 @@ model-viewer {
 
   .viewer-shell {
     min-height: 0;
-  }
-
-  .viewer-toolbar {
-    padding: 0.75rem;
-  }
-
-  .viewer-toolbar select {
-    min-width: 0;
-    max-width: 70%;
   }
 
   model-viewer {
