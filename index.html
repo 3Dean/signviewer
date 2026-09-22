@@ -18,11 +18,19 @@
         <p>Use one finger to rotate, swipe with two fingers to move, and pinch with two fingers to zoom. Use AR on a supported mobile device.</p>
       </header>
 
+      <div class="model-picker">
+        <label for="model-select">Finish</label>
+        <select id="model-select" aria-controls="artwork-viewer">
+          <option value="/models/woodsRestSign_Model_005.glb">Painted color</option>
+          <option value="/models/woodsrestsign_wood.glb">Wood texture</option>
+        </select>
+      </div>
+
       <section class="viewer-shell" aria-label="Interactive 3D model">
         <model-viewer
           id="artwork-viewer"
           src="/models/woodsRestSign_Model_005.glb"
-          alt="Interactive three-dimensional artwork"
+          alt="Interactive three-dimensional artwork — painted color finish"
           camera-controls
           touch-action="pan-y"
           auto-rotate
@@ -46,7 +54,7 @@
         </div>
       </section>
 
-      <p id="model-message" class="model-message" hidden></p>
+      <p id="model-message" class="model-message" role="status" hidden></p>
     </main>
 
     <script type="module" src="/src/main.js"></script>

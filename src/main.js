@@ -8,12 +8,25 @@ const viewer = document.querySelector('#artwork-viewer');
 const message = document.querySelector('#model-message');
 const viewerActions = document.querySelector('#viewer-actions');
 const arButton = document.querySelector('#ar-button');
+const modelSelect = document.querySelector('#model-select');
 
 function updateArAvailability() {
-  viewerActions.hidden = !viewer.canActivateAR;
+  viewerActions.hidden = !viewer.loaded || !viewer.canActivateAR;
 }
 
-viewer.addEventListener('load', updateArAvailability);
+modelSelect.addEventListener('change', () => {
+  message.hidden = true;
+  message.textContent = '';
+  viewerActions.hidden = true;
+  viewer.alt = `Interactive three-dimensional artwork — ${modelSelect.selectedOptions[0].textContent.toLowerCase()} finish`;
+  viewer.src = modelSelect.value;
+});
+
+viewer.addEventListener('load', () => {
+  message.hidden = true;
+  message.textContent = '';
+  updateArAvailability();
+});
 viewer.addEventListener('ar-status', updateArAvailability);
 
 arButton.addEventListener('click', async () => {
@@ -26,7 +39,8 @@ arButton.addEventListener('click', async () => {
 });
 
 viewer.addEventListener('error', () => {
+  viewerActions.hidden = true;
   message.hidden = false;
   message.textContent =
-    'The model could not be loaded. Confirm that the GLB exists in public/models and refresh the page.';
+    'This finish could not be loaded. Choose another finish or refresh the page to try again.';
 });
